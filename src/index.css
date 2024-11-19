@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    min-width: 320px !important;
+}
+
+@layer utilities {
+    .container-fluid {
+        @apply mx-auto max-w-[1920px] px-4 sm:px-6 2xl:px-7 3xl:px-8 4xl:px-16;
+    }
+
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+.public-header.is-scrolling {
+    @apply shadow-card;
+}
+
+/* Header */
+.custom-header-blur {
+    backdrop-filter: blur(50px);
+}
+
+/* Home */
+/* Hero Banner */
+.custom-radial-gradient-bg {
+    background: radial-gradient(
+        66.18% 66.18% at 50.94% 33.82%,
+        rgba(102, 102, 102, 0) 0%,
+        rgba(0, 0, 0, 0.6) 88.37%
+    );
+}
