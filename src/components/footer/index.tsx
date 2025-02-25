@@ -29,7 +29,7 @@ const { iconContainer, icon } = styles;
 
 export default function Footer() {
     return (
-        <footer className="bg-[#F8F9FA] relative z-10">
+        <footer className="bg-white relative z-10">
             <div className="container-fluid flex justify-center items-center flex-col py-16">
                 <nav>
                     <ul className="flex items-center justify-center mt-6">
