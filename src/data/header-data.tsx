@@ -1,6 +1,6 @@
-import { FaHome, FaRegBell } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
-import { LuLayoutDashboard } from "react-icons/lu";
+import { IoDocumentOutline } from "react-icons/io5";
 
 type HeaderData = {
     navItems: {
@@ -20,12 +20,8 @@ export const headerData: HeaderData = {
             icon: <IoIosSearch size={20} />,
         },
         {
-            name: "Notifications",
-            icon: <FaRegBell size={20} />,
-        },
-        {
-            name: "Settings",
-            icon: <LuLayoutDashboard size={20} />,
+            name: "Terms and Conditions",
+            icon: <IoDocumentOutline size={20} />,
         },
     ],
 };
