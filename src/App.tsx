@@ -1,8 +1,28 @@
-import Home from "./pages/home";
+import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Pages Import
+const Home = lazy(() => import("./pages/home"));
+const Contact = lazy(() => import("./pages/contact"));
 
 function App() {
     return (
-        <Home />
+        <div className="flex min-h-full flex-col">
+            <Router
+                future={{
+                    v7_relativeSplatPath: true,
+                    v7_startTransition: true,
+                }}
+            >
+                <Suspense fallback={null}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="*" element={<Home />} />
+                    </Routes>
+                </Suspense>
+            </Router>
+        </div>
     );
 }
 

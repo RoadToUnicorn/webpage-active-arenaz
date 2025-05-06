@@ -1,19 +1,25 @@
 import { useRef, memo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { addScrollingClass } from "../../utils/add-scrolling-class";
 import Logo from "../ui/logo";
 import { headerData } from "../../data/header-data";
 import TermsModal from "../modals/terms-modal";
 
 const Header = memo(() => {
+    const navigate = useNavigate();
     const headerRef = useRef(null);
     addScrollingClass(headerRef);
 
     const [open, setOpen] = useState(false);
 
-    const handleNavClick = (name: string) => {
-        if (name === "Terms and Conditions") {
+    const handleNavClick = (path: string) => {
+        if (path === "Terms and Conditions") {
             setOpen(true);
+
+            return;
         }
+
+        navigate(path);
     };
 
     return (
@@ -31,7 +37,9 @@ const Header = memo(() => {
                                 <button
                                     key={index}
                                     className="flex items-center gap-2 text-xs font-medium text-black"
-                                    onClick={() => handleNavClick(item.name)}
+                                    onClick={() =>
+                                        handleNavClick(item.path || item.name)
+                                    }
                                 >
                                     {item.icon}
                                     <span>{item.name}</span>

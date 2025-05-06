@@ -1,16 +1,17 @@
 import { useState } from "react";
 import clsx from "clsx";
+import { useNavigate } from "react-router-dom";
 import { MdOutlineMessage, MdMailOutline } from "react-icons/md";
 import TermsModal from "../modals/terms-modal";
 
 const menuItems = [
     {
         label: "Home",
-        path: "#",
+        path: "/",
     },
     {
-        label: "Bookings",
-        path: "#",
+        label: "Contact Us",
+        path: "/contact",
     },
     {
         label: "Terms and Conditions",
@@ -26,6 +27,8 @@ const styles = {
 const { iconContainer, icon } = styles;
 
 export default function Footer() {
+    const navigate = useNavigate();
+
     const [open, setOpen] = useState(false);
 
     return (
@@ -38,13 +41,15 @@ export default function Footer() {
                                 <li
                                     key={item.label}
                                     className="px-2 md:px-4 first:pl-0 last:pr-0 lg:px-6"
+                                    onClick={() => {
+                                        if (item.path) {
+                                            navigate(item.path);
+                                        }
+                                    }}
                                 >
                                     <p
                                         className={clsx(
-                                            "block text-sm md:text-base font-semibold capitalize leading-4 hover:underline cursor-pointer",
-                                            item.label === "Home"
-                                                ? "text-primary"
-                                                : "text-black/80"
+                                            "block text-sm md:text-base font-semibold capitalize leading-4 hover:underline cursor-pointer text-black/80"
                                         )}
                                         onClick={() => {
                                             if (
