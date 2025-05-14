@@ -6,7 +6,7 @@ type HeaderData = {
     navItems: {
         name: string;
         icon: JSX.Element;
-        path?: string;
+        path: string;
     }[];
 };
 
@@ -15,6 +15,7 @@ export const headerData: HeaderData = {
         {
             name: "Home",
             icon: <FaHome size={20} />,
+            path: "/",
         },
         {
             name: "Contact Us",
@@ -22,8 +23,9 @@ export const headerData: HeaderData = {
             path: "/contact",
         },
         {
-            name: "Terms and Conditions",
+            name: "Privacy Policy",
             icon: <IoDocumentOutline size={20} />,
+            path: "/privacy-policy",
         },
     ],
 };

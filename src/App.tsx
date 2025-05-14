@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Pages Import
 const Home = lazy(() => import("./pages/home"));
 const Contact = lazy(() => import("./pages/contact"));
+const PrivacyPolicy = lazy(() => import("./pages/privacy-policy"));
 
 function App() {
     return (
@@ -18,6 +19,11 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route
+                            path="/privacy-policy"
+                            element={<PrivacyPolicy />}
+                        />
+
                         <Route path="*" element={<Home />} />
                     </Routes>
                 </Suspense>
